@@ -4,12 +4,12 @@ include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../include"
 set(divsufsort_SRCS divsufsort.c sssort.c trsort.c utils.c)
 
 ## libdivsufsort ##
-add_library(divsufsort ${divsufsort_SRCS})
-install(TARGETS divsufsort
+add_library(divsufsort-gin ${divsufsort_SRCS})
+install(TARGETS divsufsort-gin
   RUNTIME DESTINATION ${CMAKE_INSTALL_RUNTIMEDIR}
   LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
-set_target_properties(divsufsort PROPERTIES
+set_target_properties(divsufsort-gin PROPERTIES
   VERSION   "${LIBRARY_VERSION}"
   SOVERSION "${LIBRARY_SOVERSION}"
   DEFINE_SYMBOL DIVSUFSORT_BUILD_DLL
@@ -17,12 +17,12 @@ set_target_properties(divsufsort PROPERTIES
 
 ## libdivsufsort64 ##
 if(BUILD_DIVSUFSORT64)
-  add_library(divsufsort64 ${divsufsort_SRCS})
-  install(TARGETS divsufsort64
+  add_library(divsufsort64-gin ${divsufsort_SRCS})
+  install(TARGETS divsufsort64-gin
     RUNTIME DESTINATION ${CMAKE_INSTALL_RUNTIMEDIR}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
-  set_target_properties(divsufsort64 PROPERTIES
+  set_target_properties(divsufsort64-gin PROPERTIES
     VERSION   "${LIBRARY_VERSION}"
     SOVERSION "${LIBRARY_SOVERSION}"
     DEFINE_SYMBOL DIVSUFSORT_BUILD_DLL
